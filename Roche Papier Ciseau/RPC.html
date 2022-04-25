@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Roche Papier Ciseau</title>
+</head>
+
+<style>
+    /*Body*/
+    body {
+        background-color: rgb(41, 41, 63);
+    }
+
+
+    /*Sections*/
+    #cLeft {
+        background-image: linear-gradient(to right, rgb(56, 55, 61), rgb(47, 47, 70));
+        border-left: 20px solid rgb(70, 70, 104);
+        position: absolute;
+        left: 50px;
+        top: 104px;
+        bottom: 100px;
+        right: calc(50vw + 300px);
+    }
+
+    #cRight {
+        background-image: linear-gradient(to left, rgb(56, 55, 61), rgb(47, 47, 70));
+        border-right: 20px solid rgb(70, 70, 104);
+        position: absolute;
+        right: 50px;
+        top: 104px;
+        bottom: 100px;
+        left: calc(50vw + 300px)
+    }
+
+
+    /*Barres de vie*/
+    #hLeft {
+        background-color: hsl(100, 100%, 50%);
+        transform-origin: bottom;
+        position: absolute;
+        right: 25px;
+        top: 40px;
+        bottom: 40px;
+        width: 10px;
+    }
+
+    #hRight {
+        background-color: hsl(100, 100%, 50%);
+        transform-origin: bottom;
+        position: absolute;
+        left: 25px;
+        top: 40px;
+        bottom: 40px;
+        width: 10px;
+    }
+
+
+    /*Images gauche*/
+    #ilPaper {
+        height: 33%;
+        margin: auto;
+        position: relative;
+        left: 0px;
+        display: block;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    #ilPaper:hover {
+        transform: scale(1.4);
+    }
+
+    #ilScissors {
+        height: 33%;
+        margin: auto;
+        position: relative;
+        left: 0px;
+        display: block;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    #ilScissors:hover {
+        transform: scale(1.4);
+    }
+
+    #ilRock {
+        height: 33%;
+        margin: auto;
+        position: relative;
+        left: 0px;
+        display: block;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    #ilRock:hover {
+        transform: scale(1.4);
+    }
+
+    /*Images droite*/
+    #irPaper {
+        height: 33%;
+        margin: auto;
+        position: relative;
+        right: 0px;
+        display: block;
+        transform: scaleX(-1);
+        transition: 0.5s;
+    }
+
+    #irScissors {
+        height: 33%;
+        margin: auto;
+        position: relative;
+        right: 0px;
+        display: block;
+        transform: scaleX(-1);
+        transition: 0.5s;
+    }
+
+    #irRock {
+        height: 33%;
+        margin: auto;
+        position: relative;
+        right: 0px;
+        display: block;
+        transform: scaleX(-1);
+        transition: 0.5s;
+    }
+
+
+    /*Image Versus*/
+    #iVs {
+        height: 40vh;
+        margin: auto;
+        position: relative;
+        display: block;
+        top: 20vh;
+    }
+
+
+    /*Bouton Fight*/
+    #bFight:hover {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    #bFight {
+        background-color: rgb(57, 56, 64);
+        border: none;
+        margin: auto;
+        position: relative;
+        top: 25vh;
+        display: block;
+        width: 15vh;
+        height: 5vh;
+        color: rgb(23, 23, 45);
+        font-size: 2.5vh;
+        font-style: bold;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: 0.3s;
+    }
+
+
+    /*Message Win/Lose/Tie*/
+    #mWin {
+        text-align: center;
+        color: green;
+        text-decoration: underline;
+        height: 10vh;
+        width: 10vw;
+        position: absolute;
+        bottom: 15vh;
+        left: 50vw;
+        font-size: 2.5vh;
+        opacity: 0;
+        cursor: default;
+    }
+
+    #mLose {
+        text-align: center;
+        color: red;
+        text-decoration: underline;
+        height: 10vh;
+        width: 10vw;
+        position: absolute;
+        bottom: 15vh;
+        left: 50vw;
+        font-size: 2.5vh;
+        opacity: 0;
+        cursor: default;
+    }
+
+    #mTie {
+        text-align: center;
+        color: gray;
+        text-decoration: underline;
+        height: 10vh;
+        width: 10vw;
+        position: absolute;
+        bottom: 15vh;
+        left: 50vw;
+        font-size: 2.5vh;
+        opacity: 0;
+        cursor: default;
+    }
+
+    #mVictory {
+        text-align: center;
+        color: green;
+        text-decoration: underline;
+        height: 10vh;
+        width: 10vw;
+        position: absolute;
+        bottom: 15vh;
+        left: 50vw;
+        font-size: 2.5vh;
+        opacity: 0;
+        cursor: default;
+    }
+
+    #mDefeat {
+        text-align: center;
+        color: red;
+        text-decoration: underline;
+        height: 10vh;
+        width: 10vw;
+        position: absolute;
+        bottom: 15vh;
+        left: 50vw;
+        font-size: 2.5vh;
+        opacity: 0;
+        cursor: default;
+    }
+
+    /*Noms*/
+    #nLeft {
+        color: rgb(105, 104, 112);
+        text-decoration: underline;
+        height: 2vh;
+        position: absolute;
+        top: 40px;
+        bottom: 100px;
+        left: 50px;
+        height: 10vh;
+        cursor: default;
+    }
+
+    #nRight {
+        color: rgb(105, 104, 112);
+        text-decoration: underline;
+        position: absolute;
+        top: 40px;
+        right: 50px;
+        height: 10vh;
+        cursor: default;
+    }
+</style>
+
+<body>
+
+    <!-- Section de gauche -->
+    <div id="cLeft">
+
+        <div id="hLeft"></div>
+
+        <img src="Paper.png" id="ilPaper" onclick="pSelect()">
+        <img src="Scissors.png" id="ilScissors" onclick="sSelect()">
+        <img src="Rock.png" id="ilRock" onclick="rSelect()">
+
+    </div>
+
+    <!-- "Player" texte -->
+    <div id="nLeft">
+
+        <h1>Player</h1>
+
+    </div>
+
+    <!-- Section de droite-->
+    <div id="cRight">
+
+        <div id="hRight"></div>
+
+        <img src="Paper.png" id="irPaper">
+        <img src="Scissors.png" id="irScissors">
+        <img src="Rock.png" id="irRock">
+
+    </div>
+
+    <!-- "Robot" texte -->
+    <div id="nRight">
+
+        <h1>Robot</h1>
+
+    </div>
+
+    <!-- Image milieu, Bouton fight-->
+    <img src="Vs.PNG" id="iVs">
+    <input type="button" value="Fight" id="bFight" onclick="fight()">
+
+
+    <!-- Message Win/Lose/Tie/Victory/Defeat -->
+
+    <div id="mWin">
+        <h1>Good</h1>
+    </div>
+
+
+    <div id="mLose">
+        <h1>DIE</h1>
+    </div>
+
+
+    <div id="mTie">
+        <h1>Tie!</h1>
+    </div>
+
+    <div id="mVictory">
+        <h1>Victory</h1>
+    </div>
+
+    <div id="mDefeat">
+        <h1>Defeat</h1>
+    </div>
+
+
+</body>
+
+<script src=RPCj.js></script>
+
+</html>

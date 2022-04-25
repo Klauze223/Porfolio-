@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Devine le chiffre</title>
+</head>
+
+
+
+<style>
+
+    body{
+        background-image: url("Minecraft.jpg");
+        background-size: cover;
+    }
+
+	#game{
+        background-image: url("Dirt.jpg");
+        background-size: cover;
+        width: 250px;
+        text-align: center;      
+        margin: auto;
+        padding: 20px;   
+        margin-top: 30vh;
+		background-position: inherit;
+		border: black thick solid;
+    }
+	
+    #vie{
+        width: 1000px;
+        height: 30px;
+        background-color: red;
+		margin:auto;
+		margin-top: 10vh;
+		border: black thin solid;
+    }
+
+
+</style>
+
+
+
+<body>
+
+    <div id="game">
+        <h2>Entrer un chiffre</h2>  
+        <h3>Choisissez un difficulté avant de commencer</h3>
+
+        <input type="button" value="Normal" onclick="normal()">
+        <input type="button" value="Difficile" onclick="hard()"><br><br>
+
+        <p id="text"></p><br>
+
+        <input type="number" id="num"><br><br>
+        <input type="button" value="Valider" onclick="check()"><br><br>
+        <input type="button" value="Recommencer" onclick="restart()"><br><br> 
+
+        <input type="button" value="Commencer la musique" onclick="start()"><br>
+        <input type="button" value="Pause" onclick="pause()"><br>
+        <input type="button" value="Arrêter la musique" onclick="stop()"><br>
+
+        <h4 id="numOfTries"></h4>
+    </div>
+
+    <div id="vie"></div>
+
+
+    <script src="Devine le chiffre.js"></script>
+
+</body>
+
+
+</html>
